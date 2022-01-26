@@ -5,6 +5,7 @@ import groovy.transform.Canonical
 import javax.persistence.CascadeType
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
@@ -35,7 +36,8 @@ class Instructor {
     @JoinColumn(name="instructor_detail_id")
     InstructorDetail instructorDetail
 
-    @OneToMany(mappedBy = "instructor",
+    @OneToMany(fetch= FetchType.LAZY,
+            mappedBy = "instructor",
             cascade = [CascadeType.PERSIST, CascadeType.MERGE,
                     CascadeType.DETACH, CascadeType.REFRESH])
     List<Course> courses

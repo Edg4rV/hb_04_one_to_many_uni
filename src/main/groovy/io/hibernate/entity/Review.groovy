@@ -34,4 +34,5 @@ class Review {
                 ", comment='" + comment + '\'' +
                 '}';
     }
+
 }
